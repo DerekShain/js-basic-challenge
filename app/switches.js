@@ -7,6 +7,65 @@
     // output: 7
 
 function daysPosition(day, offset) {
+    let string = '';
+    string = day;
+    string = string.charAt(0).toUpperCase() + string.slice(1);
+    
+    switch (string){
+        case 'Sunday':
+            if(offset == true){
+              return 7
+            }
+            else {
+                return 1
+            }
+            break;
+    case 'Monday':
+        if(offset == true){
+            return 1
+        }else{
+            return 2
+        }
+        break;
+    case 'Tuesday':
+            if(offset == true){
+                return 2
+            }else{
+                return 3
+            }
+            break;
+    case 'Wednesday':
+            if(offset == true){
+                return 3
+            }else{
+                return 4
+            }
+            break;
+    case 'Thursday':
+            if(offset == true){
+                return 4
+            }else{
+                return 5
+            }
+            break;
+    case 'Friday':
+            if(offset == true){
+                return 5
+            }else{
+                return 6
+            }
+            break;
+    case 'Saturday':
+            if(offset == true){
+                return 6
+            }else{
+                return 7
+            }
+            break;
+    default: 
+        return "That\'s not a day of the week"
+    break;
+  }
 
 }
 
@@ -27,7 +86,24 @@ function daysPosition(day, offset) {
  */
 
  function golfScore(score, par) {
-
+    if(score == 1){
+        return "Ace"
+    }
+    if(score - par > 2){
+        return "ouch";
+    }
+    switch (score - par) {
+        case -2:
+            return "Eagle";
+        case -1:
+            return "Birdie";
+        case 0:
+            return "Par";
+        case 1:
+            return "bogie";
+        case 2:
+            return "double bogie";
+    }
  }
  
 
@@ -52,5 +128,30 @@ function daysPosition(day, offset) {
 let count = 0
 
 function cardCounter(card) {
+    switch (card) {
+        case '2':   
+        case '3':   
+        case '4':   
+        case '5':   
+        case '6':
+            count++
+            break;
+        case '7':
+        case '8':
+        case '9':
+            break;
+        case '10':   
+        case 'J':   
+         case 'Q':   
+         case 'K':   
+        case 'A':
+            count--
+            break;
+        }
+        if(count > 0){
+            return `${count} Bet`
+        } else {
+            return `${count} Hold`
+        }
 
 }
